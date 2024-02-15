@@ -15,3 +15,13 @@ class SocialNetwork:
     def sign_up(self, username, password):
         user = User(username, password)
         self.listOfUsers.append(user)
+
+    def log_out(self, name):
+        for user in self.listOfUsers:
+            if user._username == name:
+                user._active = False
+
+    def log_in(self, name, password):
+        for user in self.listOfUsers:
+            if user._username == name and user._password == password:
+                user._active = True

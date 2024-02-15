@@ -11,12 +11,12 @@ class PostType(Enum):
     SALE = "Sale"
 
 class PostFactory:
-    def create_post(self, post_type, postContent):
+    def create_post(self, post_type, *args):
         if post_type == PostType.TEXT:
-            return textPost(postContent)
+            return textPost(*args)
         elif post_type == PostType.IMAGE:
-            return imagePost(postContent)
+            return imagePost(*args)
         elif post_type == PostType.SALE:
-            return salePost(postContent)
+            return salePost(*args)
         else:
             raise ValueError("Invalid post type")
