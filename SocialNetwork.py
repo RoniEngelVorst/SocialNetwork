@@ -13,8 +13,14 @@ class SocialNetwork:
     def __init__(self, name):
         self.name = name
     def sign_up(self, username, password):
-        user = User(username, password)
-        self.listOfUsers.append(user)
+        for user in self.listOfUsers:
+            if user._username == username:
+                raise ValueError("Username is already taken")
+        if len(password) > 8 or len(password) < 4:
+            raise ValueError("Password not valid")
+        else:
+            user = User(username, password)
+            self.listOfUsers.append(user)
 
     def log_out(self, name):
         for user in self.listOfUsers:

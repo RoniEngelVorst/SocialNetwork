@@ -21,3 +21,6 @@ class Comment():
     def __init__(self, user, content):
         self._user = user
         self._content = content
+
+    def __str__(self):
+        return f"{self._user} published a post:\n{self._content}"
