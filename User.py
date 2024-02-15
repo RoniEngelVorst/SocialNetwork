@@ -21,3 +21,6 @@ class User:
     def publish_post(self, PostType, PostContent):
         new_post = PostFactory.create_post(PostType.PostType)
         self._posts.append(new_post)
+
+    def update(self):
+        pass
