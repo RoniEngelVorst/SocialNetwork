@@ -1,5 +1,9 @@
+from User import User
+
+
 class SocialNetwork:
     _instance = None
+    listOfUsers = []
 
     def __new__(cls):
         # If an instance does not exist, create one
@@ -8,4 +12,6 @@ class SocialNetwork:
         return cls._instance
     def __init__(self, name):
         self.name = name
-    def sign_up(self, username, number):
+    def sign_up(self, username, password):
+        user = User(username, password)
+        self.listOfUsers.append(user)
