@@ -1,4 +1,5 @@
 from PostFactory import PostFactory
+from SocialNetwork import SocialNetwork
 
 
 class User:
@@ -14,16 +15,19 @@ class User:
                 pass
             else:
                 userToFollow._followers.append(self)
+                print(f"{self._username} started following {userToFollow._username}")
 
     def unfollow(self, userToStopFollowing):
         if self._active == True:
             if(self in userToStopFollowing._followers):
                 userToStopFollowing._followers.remove(self)
+                print(f"{self._username} unfollowed {userToStopFollowing._username}")
 
     def publish_post(self, PostType, PostContent):
         if self._active == True:
             new_post = PostFactory.create_post(PostType.PostType)
             self._posts.append(new_post)
+            print(str(self._posts[-1]))
 
     def update(self):
         pass

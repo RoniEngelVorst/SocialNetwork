@@ -14,6 +14,7 @@ class imagePost(Post):
         plt.imshow(image)
         plt.axis('off')  # Turn off axis
         plt.show()
+        print("Shows picture")
 
     def __str__(self):
         return f"{self._user.username} posted a picture"
