@@ -6,17 +6,18 @@ from textPost import textPost
 
 
 class PostType(Enum):
-    TEXT = "Text"
-    IMAGE = "Image"
-    SALE = "Sale"
+    TEXT = 'Text'
+    IMAGE = 'Image'
+    SALE = 'Sale'
 
 class PostFactory:
-    def create_post(self, post_type, *args):
+    @staticmethod
+    def create_post(post_type, user, *args):
         if post_type == PostType.TEXT:
-            return textPost(*args)
+            return textPost(user, *args)
         elif post_type == PostType.IMAGE:
-            return imagePost(*args)
+            return imagePost(user, *args)
         elif post_type == PostType.SALE:
-            return salePost(*args)
+            return salePost(user, *args)
         else:
             raise ValueError("Invalid post type")
