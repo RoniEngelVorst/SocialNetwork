@@ -6,8 +6,8 @@ import matplotlib.image as mpimg
 
 class imagePost(Post):
     def __init__(self, user, postImage):
+        super(self, user)
         self._postImage = postImage
-        self._user = user
 
     def display(self):
         # image = mpimg.imread(imagePost)
