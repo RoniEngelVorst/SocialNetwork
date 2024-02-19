@@ -48,7 +48,7 @@ class SocialNetwork:
                 print(f"{name} connected")
 
     def __str__(self):
-        s = ""
+        s = f"{self.name} social network:\n"
         for user in self.listOfUsers:
             s = s + str(user) + "\n"
         return s

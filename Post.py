@@ -11,7 +11,7 @@ class Post(ABC):
         if self._user != user and user not in self._likes:
             # self._likes.append(user)
             # self._likes_counter = self._likes_counter+1
-            self._user.sender.notify(f"{user.username()} liked your post")
+            self._user.listOfNotifications.append(f"{user.username()} liked your post")
             print(f"notification to {self._user.username()}: {user.username()} liked your post")
 
 
@@ -19,7 +19,7 @@ class Post(ABC):
     def comment(self, user, content):
         # new_comment = Comment(user, content)
         # self._comment.append(new_comment)
-        self._user.sender.notify(f"{user.username()} commented on your post")
+        self._user.listOfNotifications.append(f"{user.username()} commented on your post")
         print(f"notification to {self._user.username()}: {user.username()} commented on your post: {content}")
 
 

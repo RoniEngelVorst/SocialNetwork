@@ -44,7 +44,7 @@ class User:
                 new_post = PostFactory.create_post(PostType.SALE, self, *args)
                 self._posts.append(new_post)
         print(str(self._posts[-1]))
-        self.sender.notify(self, f"{self._username} has a new post")
+        self.sender.notify(f"{self._username} has a new post")
         return self._posts[-1]
 
     def update(self, content):
@@ -56,6 +56,6 @@ class User:
         return f"User name: {self._username}, Number of posts: {len(self._posts)}, Number of followers: {len(self._followers)}"
 
     def print_notifications(self):
-        print(f"{self._username}'s notifications:\n")
+        print(f"{self._username}'s notifications:")
         for item in self.listOfNotifications:
-            print(item + "\n")
+            print(item)
