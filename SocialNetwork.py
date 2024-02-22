@@ -4,13 +4,7 @@ from User import User
 class SocialNetwork:
     _instance = None
 
-    # def __new__(cls, *args, **kwargs):
-    #     # If an instance does not exist, create one
-    #     if cls._instance is None:
-    #         cls._instance = super().__new__(cls)
-    #         if args or kwargs:  # Check if arguments are provided
-    #             cls._instance.__init__(*args, **kwargs)  # Call __init__ with arguments
-    #     return cls._instance
+    #using singleton
     def __new__(cls, *args, **kwargs):
         # If an instance does not exist, create one
         if cls._instance is None:
@@ -23,6 +17,7 @@ class SocialNetwork:
             self.listOfUsers = []
             print(f"The social network {self.name} was created!")
 
+    #signing up a user with the needed checks
     def sign_up(self, username, password):
         if(len(self.listOfUsers) != 0):
             for user in self.listOfUsers:
@@ -34,13 +29,14 @@ class SocialNetwork:
             new_user = User(username, password)
             self.listOfUsers.append(new_user)
             return new_user
-
+    #loging out a user and changing its active flag
     def log_out(self, name):
         for user in self.listOfUsers:
             if user._username == name:
                 user._active = False
                 print(f"{name} disconnected")
 
+    #logging in a user and changing its active flag
     def log_in(self, name, password):
         for user in self.listOfUsers:
             if user._username == name and user._password == password:

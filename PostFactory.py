@@ -11,6 +11,7 @@ class PostType(Enum):
     SALE = 'Sale'
 
 class PostFactory:
+    #a factory that creates posts
     @staticmethod
     def create_post(post_type, user, *args):
         if post_type == PostType.TEXT:

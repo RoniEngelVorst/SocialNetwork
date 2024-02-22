@@ -10,13 +10,16 @@ class salePost(Post):
         self._city = city
         self._sold = False
 
-    def discount(self, precents, password):
+    #discounting a price using number of percents
+    def discount(self, percents, password):
+        #making sure that the password belongs to the user posted the post
         if(self._user.password() == password):
-            self._itemPrice = (self._itemPrice/100)*(100-precents)
+            self._itemPrice = (self._itemPrice/100)*(100 - percents)
             print(f"Discount on {self._user.username()} product! the new price is: {self._itemPrice}")
         else:
             raise ValueError("Not the correct password\n")
 
+    #updating the post to be sold and printing a notification
     def sold(self, password):
         if(self._user.password() == password):
             self._sold = True
